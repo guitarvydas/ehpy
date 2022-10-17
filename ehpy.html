@@ -8,7 +8,7 @@ textarea {
 </head>
 <body>
 
-<h1>ehpy Drawing Transpiler</h1>
+<h1>ėpy Drawing Transpiler</h1>
 <h2>Contains Unicode characters.  Produces syntax errors if browser does not display Unicode</h2>
 <h3>Safari: View/Text Encoding/Unicode (UTF-8)</h3>
 
@@ -23,11 +23,9 @@ textarea {
 </textarea>
 
 
-<p>output: Python, Lisp</p>
+<p>output: Python</p>
 <textarea id="pyoutput" rows="20" cols="80" placeholder="python" style="font-size: 6pt;background-color:oldlace;">
 </textarea>
-<!-- <textarea id="cloutput" rows="20" cols="180" placeholder="common lisp" style="font-size: 6pt;background-color:oldlace;"> -->
-<!-- </textarea> -->
 
 <textarea id="input" hidden rows="20" cols="120" placeholder="input to last item in pipeline" style="background-color:oldlace;">
 </textarea>
@@ -85,21 +83,11 @@ textarea {
 	<!-- end sub-parsers -->
         <script src="py/emitpython.js"></script>
 	      
-    <!-- Common Lisp -->
-	<!-- phases -->
-	    <script src="lisp/childimports.js"></script>
-	    <script src="lisp/class.js"></script>
-	<!-- sub-parsers used by class.js -->
-	      <script src="lisp/childinstanceparser.js"></script>
-	      <script src="lisp/childlistparser.js"></script>
-	      <script src="lisp/connectionsparser.js"></script>
-	<!-- end sub-parsers -->
-        <script src="lisp/emitcl.js"></script>
 <!-- end emitters -->
 
 
 <!-- source code -->
-    <script src="src.js"></script>
+    <script src="../eh/src.js"></script>
 
 <script>
 
@@ -136,18 +124,11 @@ textarea {
       var pyCode = emitPython (transformedCode);
       document.getElementById('pyoutput').value = pyCode;
       
-      // var lispCode = emitCommonLisp (transformedCode);
-      // document.getElementById('cloutput').value = lispCode;
-      
   }
 
 function dump (s) {
     document.getElementById('pyoutput').value = 'DUMP:\n' + s;
 }
-
-// function cl_dump (s) {
-//     document.getElementById('cloutput').value = s;
-// }
 
   </script>
 </body>
